@@ -15,127 +15,168 @@
             font-family: 'Plus Jakarta Sans', sans-serif; 
         }
         
-        /* --- SUPPLY CHAIN NETWORK ANIMATIONS --- */
+        /* --- KINETIC SUPPLY CHAIN & LOGISTICS ANIMATIONS --- */
         @keyframes float-slow {
             0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -40px) scale(1.08); }
-            66% { transform: translate(-20px, 20px) scale(0.95); }
+            33% { transform: translate(40px, -50px) scale(1.08); }
+            66% { transform: translate(-25px, 25px) scale(0.95); }
             100% { transform: translate(0px, 0px) scale(1); }
         }
         @keyframes float-reverse {
             0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(-40px, 30px) scale(0.9); }
-            66% { transform: translate(20px, -30px) scale(1.05); }
+            33% { transform: translate(-50px, 40px) scale(0.9); }
+            66% { transform: translate(25px, -45px) scale(1.05); }
             100% { transform: translate(0px, 0px) scale(1); }
         }
-        /* Simulates cargo transit/data routing lines across supply chains */
+        /* Mid-mile / Quick commerce transit route pulsing stroke */
         @keyframes transit-line {
-            0% { stroke-dashoffset: 200; opacity: 0.15; }
-            50% { opacity: 0.45; }
-            100% { stroke-dashoffset: 0; opacity: 0.15; }
+            0% { stroke-dashoffset: 300; opacity: 0.2; }
+            50% { opacity: 0.5; }
+            100% { stroke-dashoffset: 0; opacity: 0.2; }
         }
-        /* Simulates active tracking nodes pulsing at key infrastructure hubs */
+        /* Infrastructure hub telemetry pulse */
         @keyframes node-pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.2)); }
-            50% { transform: scale(1.2); opacity: 0.7; filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.6)); }
+            0%, 100% { transform: scale(1); opacity: 0.25; filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.2)); }
+            50% { transform: scale(1.3); opacity: 0.8; filter: drop-shadow(0 0 10px rgba(20, 184, 166, 0.7)); }
+        }
+        /* Automated control tower system scan */
+        @keyframes radar-scan {
+            0% { transform: translateY(-20%); opacity: 0; }
+            10% { opacity: 0.4; }
+            90% { opacity: 0.4; }
+            100% { transform: translateY(120%); opacity: 0; }
+        }
+        /* Staggered load array entries */
+        @keyframes kinetic-entrance {
+            0% { transform: translateY(24px); opacity: 0; filter: blur(4px); }
+            100% { transform: translateY(0); opacity: 1; filter: blur(0); }
+        }
+        /* Metric dashboard active status shimmer */
+        @keyframes data-shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
-        .animate-blob-1 {
-            animation: float-slow 22s infinite ease-in-out;
-        }
-        .animate-blob-2 {
-            animation: float-reverse 26s infinite ease-in-out;
-        }
+        .animate-blob-1 { animation: float-slow 20s infinite ease-in-out; }
+        .animate-blob-2 { animation: float-reverse 24s infinite ease-in-out; }
         .animate-transit-path {
-            stroke-dasharray: 15 10;
-            animation: transit-line 35s linear infinite;
+            stroke-dasharray: 12 12;
+            animation: transit-line 25s linear infinite;
         }
-        .animate-hub-node {
-            transform-origin: center;
-            animation: node-pulse 6s ease-in-out infinite;
+        .animate-hub-node { transform-origin: center; animation: node-pulse 5s ease-in-out infinite; }
+        .animate-hub-node-delayed { transform-origin: center; animation: node-pulse 7s ease-in-out infinite; animation-delay: 2.5s; }
+        
+        .animate-radar {
+            animation: radar-scan 12s linear infinite;
+            background: linear-gradient(to bottom, transparent, rgba(16, 185, 129, 0.04) 50%, transparent);
         }
-        .animate-hub-node-delayed {
-            transform-origin: center;
-            animation: node-pulse 8s ease-in-out infinite;
-            animation-delay: 3s;
+
+        /* Entrance utility classes */
+        .reveal-node {
+            opacity: 0;
+            animation: kinetic-entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .glassmorphism {
-            background: rgba(9, 15, 32, 0.55);
+            background: rgba(9, 15, 32, 0.6);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
         }
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Dynamic High-Performance Hover Mechanics */
+        .interactive-card {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.4s ease, 
+                        box-shadow 0.4s ease;
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .interactive-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(16, 185, 129, 0.35) !important;
+            box-shadow: 0 12px 40px -12px rgba(16, 185, 129, 0.12), 
+                        0 0 0 1px rgba(16, 185, 129, 0.1) inset;
         }
     </style>
 </head>
 <body class="bg-[#030712] text-slate-100 antialiased relative overflow-x-hidden">
 
-    <!-- EXECUTIVE COMMAND CENTER BACKGROUND CANVAS -->
+    <!-- GLOBAL LOGISTICAL COMMAND CENTER CANVAS -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <!-- Ambient Atmospheric Fluid Depths -->
+        <!-- Ambient Atmospheric Fluids -->
         <div class="absolute top-[-5%] left-[-5%] w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[140px] animate-blob-1"></div>
-        <div class="absolute top-[35%] right-[-10%] w-[700px] h-[700px] bg-teal-500/5 rounded-full blur-[160px] animate-blob-2"></div>
-        <div class="absolute bottom-[15%] left-[2%] w-[650px] h-[650px] bg-blue-500/5 rounded-full blur-[150px] animate-blob-1"></div>
+        <div class="absolute top-[30%] right-[-10%] w-[700px] h-[700px] bg-teal-500/5 rounded-full blur-[160px] animate-blob-2"></div>
+        <div class="absolute bottom-[20%] left-[-5%] w-[650px] h-[650px] bg-blue-500/5 rounded-full blur-[150px] animate-blob-1"></div>
 
-        <!-- Tech Matrix Grid Overlay -->
-        <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.25]"></div>
+        <!-- Radar System Sweep Lines -->
+        <div class="absolute inset-x-0 h-[40%] animate-radar pointer-events-none"></div>
 
-        <!-- Responsive Network Topology Paths & Hubs (SVG Supply Network) -->
-        <svg class="absolute inset-0 w-full h-full opacity-[0.35]" xmlns="http://www.w3.org/2000/svg">
+        <!-- Technical Infrastructure Network Grid Overlay -->
+        <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.22]"></div>
+
+        <!-- Dynamic Cargo Flow Routing Vectors (Responsive SVG Layout) -->
+        <svg class="absolute inset-0 w-full h-full opacity-[0.4]" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.2"/>
-                    <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2"/>
+                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.1"/>
+                    <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.5"/>
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.1"/>
                 </linearGradient>
             </defs>
             
-            <!-- Global Mid-Mile Supply Pipeline Simulations -->
-            <path d="M -100 250 C 300 50, 700 450, 1400 200" fill="none" stroke="url(#pathGradient)" stroke-width="1.5" class="animate-transit-path" />
-            <path d="M 200 1200 C 600 900, 400 600, 1600 800" fill="none" stroke="url(#pathGradient)" stroke-width="1.5" class="animate-transit-path" style="animation-duration: 45s; animation-direction: reverse;" />
-            <path d="M -50 1800 C 500 1500, 800 2200, 1500 1700" fill="none" stroke="url(#pathGradient)" stroke-width="1" class="animate-transit-path" style="animation-duration: 55s;" />
+            <!-- Global Primary Supply Pipelines -->
+            <path id="route-alpha" d="M -100 300 C 350 80, 650 500, 1500 250" fill="none" stroke="url(#pathGradient)" stroke-width="1.5" class="animate-transit-path" />
+            <path id="route-beta" d="M 100 1300 C 550 950, 450 650, 1600 850" fill="none" stroke="url(#pathGradient)" stroke-width="1.5" class="animate-transit-path" style="animation-duration: 35s; animation-direction: reverse;" />
+            <path id="route-gamma" d="M -50 1900 C 500 1550, 750 2250, 1500 1750" fill="none" stroke="url(#pathGradient)" stroke-width="1.2" class="animate-transit-path" style="animation-duration: 40s;" />
+
+            <!-- Active Physical Cargo Packets (Tracing paths using SVG animateMotion) -->
+            <circle r="3.5" fill="#34d399" filter="drop-shadow(0 0 6px #10b981)">
+                <animateMotion dur="14s" repeatCount="indefinite" path="M -100 300 C 350 80, 650 500, 1500 250" />
+            </circle>
+            <circle r="3" fill="#2dd4bf" filter="drop-shadow(0 0 6px #14b8a6)">
+                <animateMotion dur="19s" repeatCount="indefinite" path="M 1600 850 C 450 650, 550 950, 100 1300" />
+            </circle>
+            <circle r="3.5" fill="#60a5fa" filter="drop-shadow(0 0 6px #3b82f6)">
+                <animateMotion dur="24s" repeatCount="indefinite" path="M -50 1900 C 500 1550, 750 2250, 1500 1750" />
+            </circle>
 
             <!-- Strategic Tracking Infrastructure Hub Nodes -->
-            <circle cx="180" cy="190" r="4" fill="#10b981" class="animate-hub-node" />
-            <circle cx="520" cy="275" r="5" fill="#14b8a6" class="animate-hub-node-delayed" />
-            <circle cx="1100" cy="320" r="4" fill="#3b82f6" class="animate-hub-node" />
-            <circle cx="380" cy="780" r="4.5" fill="#10b981" class="animate-hub-node-delayed" />
-            <circle cx="940" cy="1150" r="5" fill="#14b8a6" class="animate-hub-node" />
-            <circle cx="250" cy="1650" r="4" fill="#3b82f6" class="animate-hub-node-delayed" />
+            <circle cx="210" cy="210" r="4.5" fill="#10b981" class="animate-hub-node" />
+            <circle cx="505" cy="290" r="5.5" fill="#14b8a6" class="animate-hub-node-delayed" />
+            <circle cx="1080" cy="340" r="4.5" fill="#3b82f6" class="animate-hub-node" />
+            <circle cx="410" cy="790" r="5" fill="#10b981" class="animate-hub-node-delayed" />
+            <circle cx="910" cy="1190" r="5.5" fill="#14b8a6" class="animate-hub-node" />
+            <circle cx="290" cy="1690" r="4.5" fill="#3b82f6" class="animate-hub-node-delayed" />
         </svg>
     </div>
 
-    <!-- NAVIGATION HEADER -->
-    <nav class="sticky top-0 z-40 bg-[#030712]/60 backdrop-blur-xl border-b border-slate-900/80">
+    <!-- NAVIGATION CONSOLE -->
+    <nav class="sticky top-0 z-40 bg-[#030712]/60 backdrop-blur-xl border-b border-slate-900/80 reveal-node">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <span class="text-lg font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">BHANU KUMAR</span>
+            <span class="text-lg font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 group cursor-default">
+                BHANU KUMAR
+            </span>
             
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
-                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
-                <a href="#metrics" class="hover:text-emerald-400 transition-colors">Impact</a>
-                <a href="#expertise" class="hover:text-emerald-400 transition-colors">Expertise</a>
-                <a href="#experience" class="hover:text-emerald-400 transition-colors">Case Studies</a>
-                <a href="#education" class="hover:text-emerald-400 transition-colors">Credentials</a>
+                <a href="#about" class="hover:text-emerald-400 transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-400 after:transition-all hover:after:w-full">About</a>
+                <a href="#metrics" class="hover:text-emerald-400 transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-400 after:transition-all hover:after:w-full">Impact</a>
+                <a href="#expertise" class="hover:text-emerald-400 transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-400 after:transition-all hover:after:w-full">Expertise</a>
+                <a href="#experience" class="hover:text-emerald-400 transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-400 after:transition-all hover:after:w-full">Case Studies</a>
+                <a href="#education" class="hover:text-emerald-400 transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-emerald-400 after:transition-all hover:after:w-full">Credentials</a>
             </div>
 
-            <button onclick="toggleMobileMenu()" class="block md:hidden text-slate-400 hover:text-white focus:outline-none z-50">
+            <button onclick="toggleMobileMenu()" class="block md:hidden text-slate-400 hover:text-white focus:outline-none z-50 transition-transform active:scale-95">
                 <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
 
-            <button onclick="openModal()" class="hidden md:block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-lg shadow-emerald-950/50">
+            <button onclick="openModal()" class="hidden md:block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-xl transition-all hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-emerald-950/50">
                 Let's Connect
             </button>
         </div>
 
-        <div id="mobileMenu" class="hidden fixed inset-0 top-20 bg-[#030712]/95 backdrop-blur-2xl z-30 flex flex-col p-6 space-y-6 text-lg font-medium border-t border-slate-900">
+        <div id="mobileMenu" class="hidden fixed inset-0 top-20 bg-[#030712]/95 backdrop-blur-2xl z-30 flex flex-col p-6 space-y-6 text-lg font-medium border-t border-slate-900 animate-fade">
             <a href="#about" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 transition-colors">About</a>
             <a href="#metrics" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 transition-colors">Impact</a>
             <a href="#expertise" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 transition-colors">Expertise</a>
@@ -147,10 +188,13 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="about" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36 flex flex-col justify-center">
+    <!-- CONTROL TOWER HERO CONSOLE -->
+    <section id="about" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36 flex flex-col justify-center reveal-node" style="animation-delay: 0.15s;">
         <div class="max-w-3xl">
-            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">Strategy | Operations | Logistics | Sourcing</span>
+            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20 transition-all hover:bg-emerald-500/15">
+                <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping"></span>
+                Strategy | Operations | Logistics | Sourcing
+            </span>
             <h1 class="text-4xl sm:text-6xl font-black tracking-tight mt-6 text-white leading-tight">
                 Supply Chain & <br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-400">Central Operations</span> Leader
@@ -159,96 +203,96 @@
                 Transformation-driven professional with experience optimizing multi-node networks across Manufacturing, Retail, FMCG, Agritech, and Quick Commerce[cite: 1]. Expert at balancing high-velocity physical fulfillment with automated data pipelines[cite: 1].
             </p>
             <div class="mt-10 flex flex-wrap gap-4">
-                <button onclick="openModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium px-7 py-4 rounded-xl transition-all shadow-xl shadow-emerald-950/40">
+                <button onclick="openModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium px-7 py-4 rounded-xl transition-all hover:scale-[1.03] active:scale-[0.97] shadow-xl shadow-emerald-950/40">
                     Let's Connect
                 </button>
-                <a href="https://www.linkedin.com/in/bhanu-kumar-352325287/" target="_blank" class="flex items-center gap-2 bg-slate-900/60 border border-slate-800 hover:bg-slate-800 text-slate-300 font-medium px-7 py-4 rounded-xl transition-all">
+                <a href="https://www.linkedin.com/in/bhanu-kumar-352325287/" target="_blank" class="flex items-center gap-2 bg-slate-900/60 border border-slate-800 hover:bg-slate-800 hover:border-slate-700 text-slate-300 font-medium px-7 py-4 rounded-xl transition-all hover:scale-[1.03] active:scale-[0.97]">
                     LinkedIn Profile
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- KEY IMPACT METRICS -->
-    <section id="metrics" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+    <!-- KEY IMPACT METRICS CONSOLE -->
+    <section id="metrics" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 reveal-node" style="animation-delay: 0.3s;">
         <div class="glassmorphism border border-slate-800/60 rounded-3xl p-8 sm:p-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="text-center md:text-left border-r border-slate-800/40 last:border-0">
-                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">100%</p>
+            <div class="text-center md:text-left border-r border-slate-800/40 last:border-0 group">
+                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-300 group-hover:scale-[1.05] origin-left">100%</p>
                 <p class="text-xs uppercase font-semibold tracking-wider text-slate-500 mt-2">OTIF Achievement</p>
             </div>
-            <div class="text-center md:text-left border-r border-slate-800/40 last:border-0">
-                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">38%</p>
+            <div class="text-center md:text-left border-r border-slate-800/40 last:border-0 group">
+                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-300 group-hover:scale-[1.05] origin-left">38%</p>
                 <p class="text-xs uppercase font-semibold tracking-wider text-slate-500 mt-2">Stockout Reduction</p>
             </div>
-            <div class="text-center md:text-left border-r border-slate-800/40 last:border-0">
-                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">&lt; 3 Hrs</p>
+            <div class="text-center md:text-left border-r border-slate-800/40 last:border-0 group">
+                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-300 group-hover:scale-[1.05] origin-left">&lt; 3 Hrs</p>
                 <p class="text-xs uppercase font-semibold tracking-wider text-slate-500 mt-2">Processing Time</p>
             </div>
-            <div class="text-center md:text-left last:border-0">
-                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">99.9%</p>
+            <div class="text-center md:text-left last:border-0 group">
+                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-300 group-hover:scale-[1.05] origin-left">99.9%</p>
                 <p class="text-xs uppercase font-semibold tracking-wider text-slate-500 mt-2">SKU Placement Accuracy</p>
             </div>
         </div>
     </section>
 
-    <!-- CORE COMPETENCIES -->
-    <section id="expertise" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- CORE COMPETENCIES NETWORK -->
+    <section id="expertise" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 reveal-node" style="animation-delay: 0.4s;">
         <div class="text-center max-w-3xl mx-auto mb-20">
             <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Core Capabilities</h2>
             <p class="text-slate-400 mt-4 font-light">Engineered solutions using continuous process frameworks and structural automation mechanics[cite: 1].</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="glassmorphism border border-slate-900 p-8 rounded-2xl hover:border-slate-800 transition-all group">
-                <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+            <div class="glassmorphism border border-slate-900 p-8 rounded-2xl interactive-card group">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9h4l3 4v4h-2V9M1 10h12v7H1z" /></svg>
                 </div>
-                <h3 class="text-lg font-bold text-white">Operations & Logistics</h3>
+                <h3 class="text-lg font-bold text-white transition-colors group-hover:text-emerald-400">Operations & Logistics</h3>
                 <ul class="text-slate-400 mt-4 space-y-2.5 text-sm font-light">
-                    <li><strong class="text-slate-300 font-medium">•</strong> E2E Supply Chain Operations</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> First / Last Mile Distribution</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> 3PL Sourcing & Fleet Governance</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> Warehouse Layout Optimization</li>
+                    <li><strong class="text-emerald-500/60 font-medium mr-1">•</strong> E2E Supply Chain Operations</li>
+                    <li><strong class="text-emerald-500/60 font-medium mr-1">•</strong> First / Last Mile Distribution</li>
+                    <li><strong class="text-emerald-500/60 font-medium mr-1">•</strong> 3PL Sourcing & Fleet Governance</li>
+                    <li><strong class="text-emerald-500/60 font-medium mr-1">•</strong> Warehouse Layout Optimization</li>
                 </ul>
             </div>
-            <div class="glassmorphism border border-slate-900 p-8 rounded-2xl hover:border-slate-800 transition-all group">
-                <div class="w-12 h-12 bg-teal-500/10 rounded-xl flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 transition-transform">
+            <div class="glassmorphism border border-slate-900 p-8 rounded-2xl interactive-card group">
+                <div class="w-12 h-12 bg-teal-500/10 rounded-xl flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 group-hover:bg-teal-500/20 transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.003 9.003 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
                 </div>
-                <h3 class="text-lg font-bold text-white">Strategy & Planning</h3>
+                <h3 class="text-lg font-bold text-white transition-colors group-hover:text-teal-400">Strategy & Planning</h3>
                 <ul class="text-slate-400 mt-4 space-y-2.5 text-sm font-light">
-                    <li><strong class="text-slate-300 font-medium">•</strong> S&OP Cycle Leadership</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> Advanced Demand Forecasting</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> Lean Six Sigma & DMAIC Frameworks</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> Control Tower Metric Governance</li>
+                    <li><strong class="text-teal-500/60 font-medium mr-1">•</strong> S&OP Cycle Leadership</li>
+                    <li><strong class="text-teal-500/60 font-medium mr-1">•</strong> Advanced Demand Forecasting</li>
+                    <li><strong class="text-teal-500/60 font-medium mr-1">•</strong> Lean Six Sigma & DMAIC Frameworks</li>
+                    <li><strong class="text-teal-500/60 font-medium mr-1">•</strong> Control Tower Metric Governance</li>
                 </ul>
             </div>
-            <div class="glassmorphism border border-slate-900 p-8 rounded-2xl hover:border-slate-800 transition-all group">
-                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+            <div class="glassmorphism border border-slate-900 p-8 rounded-2xl interactive-card group">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                 </div>
-                <h3 class="text-lg font-bold text-white">Technology & Tech Stack</h3>
+                <h3 class="text-lg font-bold text-white transition-colors group-hover:text-blue-400">Technology & Tech Stack</h3>
                 <ul class="text-slate-400 mt-4 space-y-2.5 text-sm font-light">
-                    <li><strong class="text-slate-300 font-medium">•</strong> SAP MM & PostgreSQL Modeling</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> Power BI Tracking Dashboards</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> n8n Workflow Automation (Docker)</li>
-                    <li><strong class="text-slate-300 font-medium">•</strong> Predictive Modeling via Python</li>
+                    <li><strong class="text-blue-500/60 font-medium mr-1">•</strong> SAP MM & PostgreSQL Modeling</li>
+                    <li><strong class="text-blue-500/60 font-medium mr-1">•</strong> Power BI Tracking Dashboards</li>
+                    <li><strong class="text-blue-500/60 font-medium mr-1">•</strong> n8n Workflow Automation (Docker)</li>
+                    <li><strong class="text-blue-500/60 font-medium mr-1">•</strong> Predictive Modeling via Python</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- CASE STUDIES & HISTORY -->
-    <section id="experience" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <!-- CASE STUDIES & TIMELINE PIPELINE -->
+    <section id="experience" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 reveal-node" style="animation-delay: 0.5s;">
         <div class="mb-12">
             <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Operations & Strategy Execution</h2>
             <p class="text-slate-400 mt-2 font-light">Granular breakdown of corporate case studies, tactical milestones, and academic research architectures[cite: 1].</p>
         </div>
 
-        <!-- MTC FLAGSHIP RESEARCH CARD -->
-        <div class="glassmorphism border border-slate-800/80 rounded-3xl overflow-hidden mb-16 shadow-2xl shadow-black/40">
+        <!-- FLAGSHIP MTC RESEARCH NODE -->
+        <div class="glassmorphism border border-slate-800/80 rounded-3xl overflow-hidden mb-16 shadow-2xl shadow-black/40 interactive-card">
             <div class="p-6 md:p-8 bg-slate-950/60 border-b border-slate-900">
-                <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                <span class="inline-block text-[10px] md:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
                     Flagship Research & Strategic Architecture Playbook
                 </span>
                 <h3 class="text-xl md:text-2xl font-extrabold text-white mt-4 tracking-tight">
@@ -261,16 +305,16 @@
 
             <div class="border-b border-slate-900 bg-slate-950/20 px-4 md:px-8">
                 <nav class="flex space-x-6 md:space-x-8 overflow-x-auto no-scrollbar" aria-label="Case Study Tabs">
-                    <button onclick="switchMtcTab(event, 'mtc-overview')" class="mtc-tab-btn border-b-2 border-emerald-400 py-4 px-1 text-xs md:text-sm font-semibold tracking-wide text-emerald-400 whitespace-nowrap focus:outline-none transition-all">
+                    <button onclick="switchMtcTab(event, 'mtc-overview')" class="mtc-tab-btn border-b-2 border-emerald-400 py-4 px-1 text-xs md:text-sm font-semibold tracking-wide text-emerald-400 whitespace-nowrap focus:outline-none transition-all duration-300">
                         Executive Overview
                     </button>
-                    <button onclick="switchMtcTab(event, 'mtc-challenges')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all">
+                    <button onclick="switchMtcTab(event, 'mtc-challenges')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all duration-300">
                         Core Bottlenecks
                     </button>
-                    <button onclick="switchMtcTab(event, 'mtc-strategy')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all">
+                    <button onclick="switchMtcTab(event, 'mtc-strategy')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all duration-300">
                         Strategic Solution
                     </button>
-                    <button onclick="switchMtcTab(event, 'mtc-impact')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all">
+                    <button onclick="switchMtcTab(event, 'mtc-impact')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all duration-300">
                         Quantifiable Impact
                     </button>
                 </nav>
@@ -278,7 +322,7 @@
 
             <div class="p-6 md:p-8 min-h-[360px] bg-slate-950/10">
                 <!-- Tab: Overview -->
-                <div id="mtc-overview" class="mtc-tab-content block">
+                <div id="mtc-overview" class="mtc-tab-content block animate-fade">
                     <div class="space-y-6">
                         <div>
                             <h4 class="text-base font-bold text-white mb-2">The Strategic Objective</h4>
@@ -287,15 +331,15 @@
                             </p>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                            <div class="bg-emerald-500/5 border border-emerald-500/10 p-4 rounded-xl text-center">
-                                <span class="block text-2xl md:text-3xl font-black text-emerald-400">$10.8M</span>
+                            <div class="bg-emerald-500/5 border border-emerald-500/10 p-4 rounded-xl text-center transition-all hover:bg-emerald-500/10">
+                                <span class="block text-2xl md:text-3xl font-black text-emerald-400 animate-pulse">$10.8M</span>
                                 <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1 block">Total Value Unlocked</span>
                             </div>
-                            <div class="bg-teal-500/5 border border-teal-500/10 p-4 rounded-xl text-center">
+                            <div class="bg-teal-500/5 border border-teal-500/10 p-4 rounded-xl text-center transition-all hover:bg-teal-500/10">
                                 <span class="block text-2xl md:text-3xl font-black text-teal-400">+$4.8M</span>
                                 <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1 block">Annual SC Savings</span>
                             </div>
-                            <div class="bg-blue-500/5 border border-blue-500/10 p-4 rounded-xl text-center">
+                            <div class="bg-blue-500/5 border border-blue-500/10 p-4 rounded-xl text-center transition-all hover:bg-blue-500/10">
                                 <span class="block text-2xl md:text-3xl font-black text-blue-400">+$6.0M</span>
                                 <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1 block">Working Capital Released</span>
                             </div>
@@ -303,17 +347,17 @@
                         <div class="pt-2">
                             <h5 class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-3">Core Research Domains Highlighted</h5>
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs px-3 py-1 rounded-md">Supply Chain Management (SCM)</span>
-                                <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs px-3 py-1 rounded-md">Logistics Re-Engineering</span>
-                                <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs px-3 py-1 rounded-md">Demand-to-Supply Alignment</span>
-                                <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs px-3 py-1 rounded-md">Operations Architecture</span>
+                                <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs px-3 py-1 rounded-md hover:border-slate-700 transition-colors">Supply Chain Management (SCM)</span>
+                                <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs px-3 py-1 rounded-md hover:border-slate-700 transition-colors">Logistics Re-Engineering</span>
+                                <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs px-3 py-1 rounded-md hover:border-slate-700 transition-colors">Demand-to-Supply Alignment</span>
+                                <span class="bg-slate-900 border border-slate-800 text-slate-400 text-xs px-3 py-1 rounded-md hover:border-slate-700 transition-colors">Operations Architecture</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tab: Challenges -->
-                <div id="mtc-challenges" class="mtc-tab-content hidden">
+                <div id="mtc-challenges" class="mtc-tab-content hidden animate-fade">
                     <h4 class="text-base font-bold text-white mb-4">Legacy Network Vulnerabilities</h4>
                     <p class="text-sm text-slate-400 mb-6 font-light">Prior to the re-engineering model, MTC suffered from major structural network constraints that accelerated costs[cite: 1]:</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -357,7 +401,7 @@
                 </div>
 
                 <!-- Tab: Strategy -->
-                <div id="mtc-strategy" class="mtc-tab-content hidden">
+                <div id="mtc-strategy" class="mtc-tab-content hidden animate-fade">
                     <h4 class="text-base font-bold text-white mb-4">The 5-Pillar Redesign Network</h4>
                     <div class="space-y-4">
                         <div class="border-l-2 border-emerald-500 pl-4 py-0.5">
@@ -384,7 +428,7 @@
                 </div>
 
                 <!-- Tab: Impact -->
-                <div id="mtc-impact" class="mtc-tab-content hidden">
+                <div id="mtc-impact" class="mtc-tab-content hidden animate-fade">
                     <h4 class="text-base font-bold text-white mb-4">Quantified Performance Architecture</h4>
                     <div class="overflow-x-auto border border-slate-900 rounded-xl mb-4 bg-slate-950/40">
                         <table class="w-full text-left border-collapse text-xs">
@@ -427,13 +471,13 @@
             </div>
         </div>
 
-        <!-- TIMELINE ROADMAP CARDS -->
+        <!-- HISTORICAL METRIC TIMELINE ROADMAP -->
         <div class="space-y-10">
             <!-- Role 1 -->
-            <div class="glassmorphism border border-slate-900 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 hover:border-slate-800/80 transition-all">
+            <div class="glassmorphism border border-slate-900 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 interactive-card group">
                 <div class="md:col-span-1">
-                    <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase block bg-emerald-500/5 border border-emerald-500/10 w-fit px-3 py-1 rounded-md">Jun 2025 - Present</span>
-                    <h4 class="text-xl font-bold text-white mt-4">Feminine Footwear Manufacturer</h4>
+                    <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase block bg-emerald-500/5 border border-emerald-500/10 w-fit px-3 py-1 rounded-md group-hover:bg-emerald-500/10 transition-colors">Jun 2025 - Present</span>
+                    <h4 class="text-xl font-bold text-white mt-4 group-hover:text-emerald-400 transition-colors">Feminine Footwear Manufacturer</h4>
                     <p class="text-xs text-slate-400 mt-1">Supply Chain Head - Planning & Execution</p>
                 </div>
                 <div class="md:col-span-3 space-y-4">
@@ -442,18 +486,18 @@
                         Architected end-to-end Standard Operating Procedures (SOPs) for warehouse dispatch and mid-mile logistics configurations spanning UP, Rajasthan, Tamil Nadu, and Kerala[cite: 1]. Onboarded strategic 3PL vendors mapping multi-node operations to map-based customer tracking frameworks[cite: 1].
                     </p>
                     <div class="flex flex-wrap gap-3 pt-2">
-                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg">⚡ Mitigated stockouts by 38%</span>
-                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg">⚡ Capacity utilization up 29%</span>
-                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg">⚡ Live Dashboard Execution</span>
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ Mitigated stockouts by 38%</span>
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ Capacity utilization up 29%</span>
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ Live Dashboard Execution</span>
                     </div>
                 </div>
             </div>
 
             <!-- Role 2 -->
-            <div class="glassmorphism border border-slate-900 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 hover:border-slate-800/80 transition-all">
+            <div class="glassmorphism border border-slate-900 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 interactive-card group">
                 <div class="md:col-span-1">
-                    <span class="text-xs font-bold text-teal-400 tracking-wider uppercase block bg-teal-500/5 border border-teal-500/10 w-fit px-3 py-1 rounded-md">Mar 2025 - May 2025</span>
-                    <h4 class="text-xl font-bold text-white mt-4">Shunya Agritech Pvt. Ltd.</h4>
+                    <span class="text-xs font-bold text-teal-400 tracking-wider uppercase block bg-teal-500/5 border border-teal-500/10 w-fit px-3 py-1 rounded-md group-hover:bg-teal-500/10 transition-colors">Mar 2025 - May 2025</span>
+                    <h4 class="text-xl font-bold text-white mt-4 group-hover:text-teal-400 transition-colors">Shunya Agritech Pvt. Ltd.</h4>
                     <p class="text-xs text-slate-400 mt-1">Sr. Manager - Central Operations (PAN India)</p>
                 </div>
                 <div class="md:col-span-3 space-y-4">
@@ -462,18 +506,18 @@
                         Directed pan-India central raw material procurement contracts (Wheat, Maize, Barley)[cite: 1]. Overhauled inventory modeling by simultaneously using Advanced Exponential Smoothing and Moving Average structures to optimize ME, MSE, and MAPE parameters[cite: 1]. Realized cross-dock sync mechanics and listed complex digital inventory frameworks live[cite: 1].
                     </p>
                     <div class="flex flex-wrap gap-3 pt-2">
-                        <span class="text-xs font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-3 py-1.5 rounded-lg">⚡ 100% OTIF / Zero Leakage</span>
-                        <span class="text-xs font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-3 py-1.5 rounded-lg">⚡ 99.9% SKU Accuracy</span>
-                        <span class="text-xs font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-3 py-1.5 rounded-lg">⚡ OTD up from 20% to 92%</span>
+                        <span class="text-xs font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ 100% OTIF / Zero Leakage</span>
+                        <span class="text-xs font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ 99.9% SKU Accuracy</span>
+                        <span class="text-xs font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ OTD up from 20% to 92%</span>
                     </div>
                 </div>
             </div>
 
             <!-- Role 3 -->
-            <div class="glassmorphism border border-slate-900 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 hover:border-slate-800/80 transition-all">
+            <div class="glassmorphism border border-slate-900 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 interactive-card group">
                 <div class="md:col-span-1">
-                    <span class="text-xs font-bold text-blue-400 tracking-wider uppercase block bg-blue-500/5 border border-blue-500/10 w-fit px-3 py-1 rounded-md">Sep 2024 - Oct 2024</span>
-                    <h4 class="text-xl font-bold text-white mt-4">RP Sanjiv Goenka Group</h4>
+                    <span class="text-xs font-bold text-blue-400 tracking-wider uppercase block bg-blue-500/5 border border-blue-500/10 w-fit px-3 py-1 rounded-md group-hover:bg-blue-500/10 transition-colors">Sep 2024 - Oct 2024</span>
+                    <h4 class="text-xl font-bold text-white mt-4 group-hover:text-blue-400 transition-colors">RP Sanjiv Goenka Group</h4>
                     <p class="text-xs text-slate-400 mt-1">Operations Manager - Supply Chain</p>
                 </div>
                 <div class="md:col-span-3 space-y-4">
@@ -482,18 +526,18 @@
                         Controlled core daily sourcing, warehouse distribution, and on-ground rider fleet recruitment/management patterns supplying high-velocity perishables to Kolkata, Delhi, and Gurugram nodes[cite: 1].
                     </p>
                     <div class="flex flex-wrap gap-3 pt-2">
-                        <span class="text-xs font-medium text-blue-400 bg-blue-500/5 border border-blue-500/10 px-3 py-1.5 rounded-lg">⚡ 100% OTD Timelines</span>
-                        <span class="text-xs font-medium text-blue-400 bg-blue-500/5 border border-blue-500/10 px-3 py-1.5 rounded-lg">⚡ 98.7% Item Order Fill Rate</span>
-                        <span class="text-xs font-medium text-blue-400 bg-blue-500/5 border border-blue-500/10 px-3 py-1.5 rounded-lg">⚡ n8n Workflow Automation</span>
+                        <span class="text-xs font-medium text-blue-400 bg-blue-500/5 border border-blue-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ 100% OTD Timelines</span>
+                        <span class="text-xs font-medium text-blue-400 bg-blue-500/5 border border-blue-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ 98.7% Item Order Fill Rate</span>
+                        <span class="text-xs font-medium text-blue-400 bg-blue-500/5 border border-blue-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ n8n Workflow Automation</span>
                     </div>
                 </div>
             </div>
 
             <!-- Role 4 -->
-            <div class="glassmorphism border border-slate-900 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 hover:border-slate-800/80 transition-all">
+            <div class="glassmorphism border border-slate-900 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 interactive-card group">
                 <div class="md:col-span-1">
-                    <span class="text-xs font-bold text-slate-400 tracking-wider uppercase block bg-slate-500/5 border border-slate-500/10 w-fit px-3 py-1 rounded-md">Jun 2022 - Apr 2024</span>
-                    <h4 class="text-xl font-bold text-white mt-4">Soulilution IT Services</h4>
+                    <span class="text-xs font-bold text-slate-400 tracking-wider uppercase block bg-slate-500/5 border border-slate-500/10 w-fit px-3 py-1 rounded-md group-hover:bg-slate-500/10 transition-colors">Jun 2022 - Apr 24</span>
+                    <h4 class="text-xl font-bold text-white mt-4 group-hover:text-slate-300 transition-colors">Soulilution IT Services</h4>
                     <p class="text-xs text-slate-400 mt-1">Data Analyst / SC Consultant</p>
                 </div>
                 <div class="md:col-span-3 space-y-4">
@@ -502,22 +546,22 @@
                         Cleaned and modeled relational transactional datasets using SQL[cite: 1]. Collaborated with US clients across FMCG, Food Processing, and Perishables sectors to engineer custom manual Order Management Systems (OMS) and fix systematic supply chain breakages via DMAIC[cite: 1].
                     </p>
                     <div class="flex flex-wrap gap-3 pt-2">
-                        <span class="text-xs font-medium text-slate-400 bg-slate-500/5 border border-slate-500/10 px-3 py-1.5 rounded-lg">⚡ 94.12% Validation Accuracy</span>
-                        <span class="text-xs font-medium text-slate-400 bg-slate-500/5 border border-slate-500/10 px-3 py-1.5 rounded-lg">⚡ 100% On-Time Reporting</span>
-                        <span class="text-xs font-medium text-slate-400 bg-slate-500/5 border border-slate-500/10 px-3 py-1.5 rounded-lg">⚡ SOP & TAT Engineering</span>
+                        <span class="text-xs font-medium text-slate-400 bg-slate-500/5 border border-slate-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ 94.12% Validation Accuracy</span>
+                        <span class="text-xs font-medium text-slate-400 bg-slate-500/5 border border-slate-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ 100% On-Time Reporting</span>
+                        <span class="text-xs font-medium text-slate-400 bg-slate-500/5 border border-slate-500/10 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-[1.02]">⚡ SOP & TAT Engineering</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CREDENTIALS SECTIONS -->
-    <section id="education" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mb-24">
+    <!-- CREDENTIALS NETWORKS -->
+    <section id="education" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mb-24 reveal-node" style="animation-delay: 0.6s;">
         <div class="grid md:grid-cols-2 gap-12">
             <div>
                 <h3 class="text-xl font-extrabold text-white mb-6 tracking-tight">Academic History</h3>
                 <div class="space-y-6">
-                    <div class="border-l-2 border-emerald-500 pl-5">
+                    <div class="border-l-2 border-emerald-500 pl-5 hover:border-emerald-400 transition-colors">
                         <h4 class="text-sm font-semibold text-white">Bachelor of Commerce (Hons.)</h4>
                         <p class="text-xs text-slate-400 mt-1">University of Delhi (International Business, Finance, Taxation, Analytics)[cite: 1]</p>
                     </div>
@@ -526,11 +570,11 @@
             <div>
                 <h3 class="text-xl font-extrabold text-white mb-6 tracking-tight">Advanced Credentials</h3>
                 <div class="space-y-6">
-                    <div class="border-l-2 border-emerald-500 pl-5">
+                    <div class="border-l-2 border-emerald-500 pl-5 hover:border-emerald-400 transition-colors">
                         <h4 class="text-sm font-semibold text-white">Supply Chain Management Specialization</h4>
                         <p class="text-xs text-slate-400 mt-1">Rutgers State University of New Jersey | Grade: 90.33%[cite: 1]</p>
                     </div>
-                    <div class="border-l-2 border-emerald-500 pl-5">
+                    <div class="border-l-2 border-emerald-500 pl-5 hover:border-emerald-400 transition-colors">
                         <h4 class="text-sm font-semibold text-white">Professional Certifications</h4>
                         <p class="text-xs text-slate-400 mt-1">Microsoft Certified Data Analytics | Rutgers LOPS | Advanced Data Science with Python (University of Michigan, Pursuing)[cite: 1]</p>
                     </div>
@@ -542,7 +586,7 @@
     <!-- CONTACT INTAKE MODAL -->
     <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
         <div class="glassmorphism border border-slate-800 p-8 rounded-3xl w-full max-w-lg mx-4 relative transform scale-95 transition-transform duration-300" id="modalCard">
-            <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors transform hover:rotate-90 duration-200">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
             
@@ -577,12 +621,12 @@
                     <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Message</label>
                     <textarea name="form_message" rows="4" required class="w-full bg-slate-950/80 border border-slate-800 focus:border-emerald-500/80 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition-colors resize-none"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-950/40 text-sm mt-2">
+                <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-950/40 text-sm mt-2 transform active:scale-98">
                     Send Message
                 </button>
             </form>
-            <div id="successMessage" class="hidden text-center py-8">
-                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div id="successMessage" class="hidden text-center py-8 animate-fade">
+                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                 </div>
                 <h4 class="text-lg font-bold text-white">Message Dispatched!</h4>
@@ -591,8 +635,8 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-slate-900/60 bg-[#030712] py-8 text-center text-xs text-slate-600">
+    <!-- PIPELINE LOG CONSOLE FOOTER -->
+    <footer class="border-t border-slate-900/60 bg-[#030712] py-8 text-center text-xs text-slate-600 reveal-node" style="animation-delay: 0.7s;">
         <p>© 2026 Bhanu Kumar. Optimized for Executive Recruitment Pipelines[cite: 1].</p>
     </footer>
 
