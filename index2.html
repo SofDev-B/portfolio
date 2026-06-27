@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-24">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhanu Kumar | Supply Chain & Operations Leader</title>
+    
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+        .glassmorphism {
+            background: rgba(15, 23, 42, 0.35);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-[#020617] text-slate-100 antialiased relative overflow-x-hidden">
+
+    <div class="fixed inset-0 -z-10 bg-[#020617] pointer-events-none">
+        <canvas id="sc-network-canvas" class="w-full h-full opacity-45"></canvas>
+    </div>
+
+    <nav class="sticky top-0 z-40 bg-[#020617]/40 backdrop-blur-xl border-b border-slate-900/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <span class="text-lg font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">BHANU KUMAR</span>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                <a href="#metrics" class="hover:text-emerald-400 transition-colors">Impact</a>
+                <a href="#expertise" class="hover:text-emerald-400 transition-colors">Expertise</a>
+                <a href="#experience" class="hover:text-emerald-400 transition-colors">Case Studies</a>
+                <a href="#education" class="hover:text-emerald-400 transition-colors">Credentials</a>
+            </div>
+
+            <button onclick="toggleMobileMenu()" class="block md:hidden text-slate-400 hover:text-white focus:outline-none z-50">
+                <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <button onclick="openModal()" class="hidden md:block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-semibold uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-lg shadow-emerald-950/50">
+                Let's Connect
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden fixed inset-0 top-20 bg-[#020617]/95 backdrop-blur-2xl z-30 flex flex-col p-6 space-y-6 text-lg font-medium border-t border-slate-900">
+            <a href="#about" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 transition-colors">About</a>
+            <a href="#metrics" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 transition-colors">Impact</a>
+            <a href="#expertise" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 transition-colors">Expertise</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 transition-colors">Case Studies</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="text-slate-300 hover:text-emerald-400 transition-colors">Credentials</a>
+            <button onclick="toggleMobileMenu(); openModal();" class="w-full text-center bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-3 rounded-xl text-sm font-semibold uppercase">
+                Let's Connect
+            </button>
+        </div>
+    </nav>
+
+    <section id="about" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36 flex flex-col justify-center">
+        <div class="max-w-3xl">
+            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">Strategy | Operations | Logistics | Sourcing</span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight mt-6 text-white leading-tight">
+                Supply Chain & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-blue-400">Central Operations</span> Leader
+            </h1>
+            <p class="text-base sm:text-lg text-slate-400 mt-6 leading-relaxed font-light">
+                Transformation-driven professional with experience optimizing multi-node networks across Manufacturing, Retail, FMCG, Agritech, and Quick Commerce. Expert at balancing high-velocity physical fulfillment with automated data pipelines.
+            </p>
+            <div class="mt-10 flex flex-wrap gap-4">
+                <button onclick="openModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium px-7 py-4 rounded-xl transition-all shadow-xl shadow-emerald-950/40">
+                    Let's Connect
+                </button>
+                <a href="https://www.linkedin.com/in/bhanu-kumar-352325287/" target="_blank" class="flex items-center gap-2 bg-slate-900/60 border border-slate-800 hover:bg-slate-800 text-slate-300 font-medium px-7 py-4 rounded-xl transition-all">
+                    LinkedIn Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="metrics" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+        <div class="glassmorphism border border-slate-800/40 rounded-3xl p-8 sm:p-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center md:text-left border-r border-slate-800/20 last:border-0">
+                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">100%</p>
+                <p class="text-xs uppercase font-semibold tracking-wider text-slate-500 mt-2">OTIF Achievement</p>
+            </div>
+            <div class="text-center md:text-left border-r border-slate-800/20 last:border-0">
+                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">38%</p>
+                <p class="text-xs uppercase font-semibold tracking-wider text-slate-500 mt-2">Stockout Reduction</p>
+            </div>
+            <div class="text-center md:text-left border-r border-slate-800/20 last:border-0">
+                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">&lt; 3 Hrs</p>
+                <p class="text-xs uppercase font-semibold tracking-wider text-slate-500 mt-2">Processing Time</p>
+            </div>
+            <div class="text-center md:text-left last:border-0">
+                <p class="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">99.9%</p>
+                <p class="text-xs uppercase font-semibold tracking-wider text-slate-500 mt-2">SKU Placement Accuracy</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Core Capabilities</h2>
+            <p class="text-slate-400 mt-4 font-light">Engineered solutions using continuous process frameworks and structural automation mechanics.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glassmorphism border border-slate-900/60 p-8 rounded-2xl hover:border-slate-800 transition-all group">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9h4l3 4v4h-2V9M1 10h12v7H1z" /></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white">Operations & Logistics</h3>
+                <ul class="text-slate-400 mt-4 space-y-2.5 text-sm font-light">
+                    <li><strong class="text-slate-300 font-medium">•</strong> E2E Supply Chain Operations</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> First / Last Mile Distribution</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> 3PL Sourcing & Fleet Governance</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> Warehouse Layout Optimization</li>
+                </ul>
+            </div>
+            <div class="glassmorphism border border-slate-900/60 p-8 rounded-2xl hover:border-slate-800 transition-all group">
+                <div class="w-12 h-12 bg-teal-500/10 rounded-xl flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.003 9.003 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white">Strategy & Planning</h3>
+                <ul class="text-slate-400 mt-4 space-y-2.5 text-sm font-light">
+                    <li><strong class="text-slate-300 font-medium">•</strong> S&OP Cycle Leadership</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> Advanced Demand Forecasting</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> Lean Six Sigma & DMAIC Frameworks</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> Control Tower Metric Governance</li>
+                </ul>
+            </div>
+            <div class="glassmorphism border border-slate-900/60 p-8 rounded-2xl hover:border-slate-800 transition-all group">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white">Technology & Tech Stack</h3>
+                <ul class="text-slate-400 mt-4 space-y-2.5 text-sm font-light">
+                    <li><strong class="text-slate-300 font-medium">•</strong> SAP MM & PostgreSQL Modeling</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> Power BI Tracking Dashboards</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> n8n Workflow Automation (Docker)</li>
+                    <li><strong class="text-slate-300 font-medium">•</strong> Predictive Modeling via Python</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="mb-12">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Operations & Strategy Execution</h2>
+            <p class="text-slate-400 mt-2 font-light">Granular breakdown of corporate case studies, tactical milestones, and academic research architectures.</p>
+        </div>
+
+        <div class="glassmorphism border border-slate-800/60 rounded-3xl overflow-hidden mb-16 shadow-2xl shadow-black/40">
+            <div class="p-6 md:p-8 bg-slate-950/40 border-b border-slate-900">
+                <span class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                    Flagship Research & Strategic Architecture Playbook
+                </span>
+                <h3 class="text-xl md:text-2xl font-extrabold text-white mt-4 tracking-tight">
+                    Medical Technologies Corp (MTC) — Supply Chain Re-Engineering
+                </h3>
+                <p class="text-xs md:text-sm text-slate-400 mt-1 font-light">
+                    Neutralizing regulatory margins drags through tech-enabled physical fulfillment networks.
+                </p>
+            </div>
+
+            <div class="border-b border-slate-900 bg-slate-950/20 px-4 md:px-8">
+                <nav class="flex space-x-6 md:space-x-8 overflow-x-auto no-scrollbar" aria-label="Case Study Tabs">
+                    <button onclick="switchMtcTab(event, 'mtc-overview')" class="mtc-tab-btn border-b-2 border-emerald-400 py-4 px-1 text-xs md:text-sm font-semibold tracking-wide text-emerald-400 whitespace-nowrap focus:outline-none transition-all">
+                        Executive Overview
+                    </button>
+                    <button onclick="switchMtcTab(event, 'mtc-challenges')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all">
+                        Core Bottlenecks
+                    </button>
+                    <button onclick="switchMtcTab(event, 'mtc-strategy')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all">
+                        Strategic Solution
+                    </button>
+                    <button onclick="switchMtcTab(event, 'mtc-impact')" class="mtc-tab-btn border-b-2 border-transparent py-4 px-1 text-xs md:text-sm font-medium tracking-wide text-slate-400 hover:text-slate-200 whitespace-nowrap focus:outline-none transition-all">
+                        Quantifiable Impact
+                    </button>
+                </nav>
+            </div>
+
+            <div class="p-6 md:p-8 min-h-[360px] bg-slate-950/10">
+                
+                <div id="mtc-overview" class="mtc-tab-content block">
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-base font-bold text-white mb-2">The Strategic Objective</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed font-light">
+                                Architected an end-to-end operational redesign for Medical Technologies Corp to completely insulate operational margins against a sudden <strong class="text-emerald-400 font-semibold">2.3% regulatory excise tax drag</strong>. The model successfully re-engineered structural asset workflows, transforming a traditionally fragmented cost center into a resilient digital moat.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                            <div class="bg-emerald-500/5 border border-emerald-500/10 p-4 rounded-xl text-center">
+                                <span class="block text-2xl md:text-3xl font-black text-emerald-400">$10.8M</span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1 block">Total Value Unlocked</span>
+                            </div>
+                            <div class="bg-teal-500/5 border border-teal-500/10 p-4 rounded-xl text-center">
+                                <span class="block text-2xl md:text-3xl font-black text-teal-400">+$4.8M</span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1 block">Annual SC Savings</span>
+                            </div>
+                            <div class="bg-blue-500/5 border border-blue-500/10 p-4 rounded-xl text-center">
+                                <span class="block text-2xl md:text-3xl font-black text-blue-400">+$6.0M</span>
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mt-1 block">Working Capital Released</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mtc-challenges" class="mtc-tab-content hidden">
+                    <h4 class="text-base font-bold text-white mb-4">Legacy Network Vulnerabilities</h4>
+                    <p class="text-sm text-slate-400 mb-6 font-light">Prior to the re-engineering model, MTC suffered from major structural network constraints that accelerated costs:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex gap-4 items-start">
+                            <div class="p-2 bg-rose-500/10 text-rose-400 rounded-lg shrink-0 border border-rose-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-200 text-sm">Capital Trapped in Inventory</h5>
+                                <p class="text-xs text-slate-400 mt-1 font-light">Maintained <strong class="text-slate-300">4.5 months of inventory buffers</strong> across networks, significantly lagging behind the 2.5-month lean industry standard.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="p-2 bg-rose-500/10 text-rose-400 rounded-lg shrink-0 border border-rose-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v6a2 2 0 012-2m14-8V7a2 2 0 00-2-2H5a2 2 0 00-2 2v4" /></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-200 text-sm">Logistical Redundancy</h5>
+                                <p class="text-xs text-slate-400 mt-1 font-light">A multi-tiered, fragmented routing path caused heavy double-handling and lack of pipeline tracking.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div class="p-2 bg-rose-500/10 text-rose-400 rounded-lg shrink-0 border border-rose-500/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-200 text-sm">Commercial Force Misalignment</h5>
+                                <p class="text-xs text-slate-400 mt-1 font-light">Highly trained field sales teams spent roughly <strong class="text-slate-300">40% of their operational hours</strong> moving boxes and managing regional supply tasks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mtc-strategy" class="mtc-tab-content hidden">
+                    <h4 class="text-base font-bold text-white mb-4">The 5-Pillar Redesign Network</h4>
+                    <div class="space-y-4">
+                        <div class="border-l-2 border-emerald-500 pl-4 py-0.5">
+                            <h5 class="font-bold text-slate-200 text-sm">1. Direct-to-3PL Logistical Pipeline</h5>
+                            <p class="text-xs text-slate-400 mt-0.5 font-light">Bypassed intermediate distribution nodes to ship bulk freight straight to a single centralized centralized 3PL Hub. Slashed cycles from 14 to 6 days.</p>
+                        </div>
+                        <div class="border-l-2 border-emerald-500 pl-4 py-0.5">
+                            <h5 class="font-bold text-slate-200 text-sm">2. Hub-and-Spoke Pooling Mechanics</h5>
+                            <p class="text-xs text-slate-400 mt-0.5 font-light">Aggregated protective safety levels at larger regional distribution hubs, compressing footprints to the lean 2.5-month benchmark.</p>
+                        </div>
+                        <div class="border-l-2 border-emerald-500 pl-4 py-0.5">
+                            <h5 class="font-bold text-slate-200 text-sm">3. Cloud-Enabled RFID Kiosks</h5>
+                            <p class="text-xs text-slate-400 mt-0.5 font-light">Deployed real-time automated RFID spaces right inside stock areas, feeding live usage visibility directly into automated backend pipelines.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mtc-impact" class="mtc-tab-content hidden">
+                    <h4 class="text-base font-bold text-white mb-4">Quantified Performance Architecture</h4>
+                    <div class="overflow-x-auto border border-slate-900 rounded-xl mb-4 bg-slate-950/40">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-950 text-slate-400 border-b border-slate-900 font-medium tracking-wider uppercase text-[10px]">
+                                    <th class="p-4">Value Pillar</th>
+                                    <th class="p-4">Operational Change</th>
+                                    <th class="p-4 text-right">Validated Value Release</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-900 text-slate-400 font-light">
+                                <tr>
+                                    <td class="p-4 font-bold text-slate-200">Supply Chain Optimization</td>
+                                    <td class="p-4">Production smoothing & centralized freight consolidation runs</td>
+                                    <td class="p-4 text-right text-emerald-400 font-bold">+$4.8M / Annual</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-slate-200">Working Capital Release</td>
+                                    <td class="p-4">Inventory compression from 4.5 down to 2.5 asset months</td>
+                                    <td class="p-4 text-right text-emerald-400 font-bold">+$6.0M Capital Cash</td>
+                                </tr>
+                                <tr class="bg-slate-950/80 font-bold text-slate-200 text-xs">
+                                    <td class="p-4 uppercase tracking-wider text-[10px]">Total Aggregated ROI</td>
+                                    <td class="p-4">Net Margin Drag Recovery Architecture</td>
+                                    <td class="p-4 text-right text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 font-extrabold text-sm">$10.8M Unlocked</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="space-y-10">
+            <div class="glassmorphism border border-slate-900/60 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 hover:border-slate-800/80 transition-all">
+                <div class="md:col-span-1">
+                    <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase block bg-emerald-500/5 border border-emerald-500/10 w-fit px-3 py-1 rounded-md">Jun 2025 - Present</span>
+                    <h4 class="text-xl font-bold text-white mt-4">Feminine Footwear Manufacturer</h4>
+                    <p class="text-xs text-slate-400 mt-1">Supply Chain Head - Planning & Execution</p>
+                </div>
+                <div class="md:col-span-3 space-y-4">
+                    <p class="text-slate-200 font-semibold text-lg">Multi-State Network Layout & Sourcing Strategy</p>
+                    <p class="text-sm text-slate-400 leading-relaxed font-light">
+                        Architected end-to-end Standard Operating Procedures (SOPs) for warehouse dispatch and mid-mile logistics configurations spanning UP, Rajasthan, Tamil Nadu, and Kerala. Onboarded strategic 3PL vendors mapping multi-node operations to map-based customer tracking frameworks.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg">⚡ Mitigated stockouts by 38%</span>
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-3 py-1.5 rounded-lg">⚡ Capacity utilization up 29%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glassmorphism border border-slate-900/60 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 hover:border-slate-800/80 transition-all">
+                <div class="md:col-span-1">
+                    <span class="text-xs font-bold text-teal-400 tracking-wider uppercase block bg-teal-500/5 border border-teal-500/10 w-fit px-3 py-1 rounded-md">Mar 2025 - May 2025</span>
+                    <h4 class="text-xl font-bold text-white mt-4">Shunya Agritech Pvt. Ltd.</h4>
+                    <p class="text-xs text-slate-400 mt-1">Sr. Manager - Central Operations (PAN India)</p>
+                </div>
+                <div class="md:col-span-3 space-y-4">
+                    <p class="text-slate-200 font-semibold text-lg">Pan-India Sourcing, Advanced Demand Forecasting & Logistics Execution</p>
+                    <p class="text-sm text-slate-400 leading-relaxed font-light">
+                        Directed pan-India central raw material procurement contracts (Wheat, Maize, Barley). Overhauled inventory modeling by simultaneously using Advanced Exponential Smoothing and Moving Average structures to optimize ME, MSE, and MAPE parameters. Realized cross-dock sync mechanics and listed complex digital inventory frameworks live.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <span class="text-xs font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-3 py-1.5 rounded-lg">⚡ 100% OTIF / Zero Leakage</span>
+                        <span class="text-xs font-medium text-teal-400 bg-teal-500/5 border border-teal-500/10 px-3 py-1.5 rounded-lg">⚡ OTD up from 20% to 92%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glassmorphism border border-slate-900/60 p-8 sm:p-10 rounded-2xl grid md:grid-cols-4 gap-8 hover:border-slate-800/80 transition-all">
+                <div class="md:col-span-1">
+                    <span class="text-xs font-bold text-blue-400 tracking-wider uppercase block bg-blue-500/5 border border-blue-500/10 w-fit px-3 py-1 rounded-md">Sep 2024 - Oct 2024</span>
+                    <h4 class="text-xl font-bold text-white mt-4">RP Sanjiv Goenka Group</h4>
+                    <p class="text-xs text-slate-400 mt-1">Operations Manager - Supply Chain</p>
+                </div>
+                <div class="md:col-span-3 space-y-4">
+                    <p class="text-slate-200 font-semibold text-lg">High-Velocity Fresh & Perishables Fleet Governance</p>
+                    <p class="text-sm text-slate-400 leading-relaxed font-light">
+                        Controlled core daily sourcing, warehouse distribution, and on-ground rider fleet recruitment/management patterns supplying high-velocity perishables to Kolkata, Delhi, and Gurugram nodes.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <span class="text-xs font-medium text-blue-400 bg-blue-500/5 border border-blue-500/10 px-3 py-1.5 rounded-lg">⚡ 100% OTD Timelines</span>
+                        <span class="text-xs font-medium text-blue-400 bg-blue-500/5 border border-blue-500/10 px-3 py-1.5 rounded-lg">⚡ n8n Workflow Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mb-24">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-xl font-extrabold text-white mb-6 tracking-tight">Academic History</h3>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-emerald-500 pl-5">
+                        <h4 class="text-sm font-semibold text-white">Bachelor of Commerce (Hons.)</h4>
+                        <p class="text-xs text-slate-400 mt-1">University of Delhi (International Business, Finance, Taxation, Analytics)</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-extrabold text-white mb-6 tracking-tight">Advanced Credentials</h3>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-emerald-500 pl-5">
+                        <h4 class="text-sm font-semibold text-white">Supply Chain Management Specialization</h4>
+                        <p class="text-xs text-slate-400 mt-1">Rutgers State University of New Jersey | Grade: 90.33%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="contactModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glassmorphism border border-slate-800 p-8 rounded-3xl w-full max-w-lg mx-4 relative transform scale-95 transition-transform duration-300" id="modalCard">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            
+            <h3 class="text-2xl font-extrabold text-white mb-2">Let's Connect</h3>
+            <p class="text-sm text-slate-400 font-light mb-6">Fill out the form below to reach out regarding hiring opportunities or strategic alignments.</p>
+            
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Full Name</label>
+                    <input type="text" name="form_name" required class="w-full bg-slate-950/80 border border-slate-800 focus:border-emerald-500/80 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Email Address</label>
+                    <input type="email" name="form_email" required class="w-full bg-slate-950/80 border border-slate-800 focus:border-emerald-500/80 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition-colors">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Contact Number</label>
+                    <div class="flex gap-2">
+                        <select name="form_country_code" class="bg-slate-950/80 border border-slate-800 focus:border-emerald-500/80 rounded-xl px-3 py-3 text-sm text-slate-200 outline-none transition-colors cursor-pointer max-w-[110px]">
+                            <option value="+91" selected>🇮🇳 +91</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+1">🇨🇦 +1</option>
+                            <option value="+52">🇲🇽 +52</option>
+                            <option value="+44">🇬🇧 +44</option>
+                            <option value="+49">🇩慢 +49</option>
+                            <option value="+33">🇫🇷 +33</option>
+                            <option value="+31">🇳🇱 +31</option>
+                            <option value="+353">🇮🇪 +353</option>
+                            <option value="+41">🇨🇭 +41</option>
+                            <option value="+39">🇮🇹 +39</option>
+                            <option value="+34">🇪🇸 +34</option>
+                            <option value="+46">🇸🇪 +46</option>
+                            <option value="+47">🇳🇴 +47</option>
+                            <option value="+45">🇩🇰 +45</option>
+                            <option value="+358">🇫🇮 +358</option>
+                            <option value="+32">🇧🇪 +32</option>
+                            <option value="+43">🇦🇹 +43</option>
+                            <option value="+351">🇵🇹 +351</option>
+                            <option value="+48">🇵🇱 +48</option>
+                            <option value="+40">🇷🇴 +40</option>
+                            <option value="+65">🇸🇬 +65</option>
+                            <option value="+852">🇭🇰 +852</option>
+                            <option value="+81">🇯🇵 +81</option>
+                            <option value="+82">🇰🇷 +82</option>
+                            <option value="+60">🇲🇾 +60</option>
+                            <option value="+63">🇵🇭 +63</option>
+                            <option value="+62">🇮🇩 +62</option>
+                            <option value="+86">🇨🇳 +86</option>
+                            <option value="+886">🇹🇼 +886</option>
+                            <option value="+66">🇹🇭 +66</option>
+                            <option value="+84">🇻🇳 +84</option>
+                            <option value="+94">🇱🇰 +94</option>
+                            <option value="+880">🇧🇩 +880</option>
+                            <option value="+977">🇳🇵 +977</option>
+                            <option value="+971">🇦🇪 +971</option>
+                            <option value="+966">🇸🇦 +966</option>
+                            <option value="+974">🇶🇦 +974</option>
+                            <option value="+965">🇰🇼 +965</option>
+                            <option value="+968">🇴🇲 +968</option>
+                            <option value="+973">🇧 Bahrain +973</option>
+                            <option value="+972">🇮🇱 +972</option>
+                            <option value="+90">🇹🇷 +90</option>
+                            <option value="+55">🇧🇷 +55</option>
+                            <option value="+54">🇦🇷 +54</option>
+                            <option value="+27">🇿🇦 +27</option>
+                            <option value="+234">🇳🇬 +234</option>
+                            <option value="+254">🇰🇪 +254</option>
+                            <option value="+20">🇪🇬 +20</option>
+                            <option value="+61">🇦🇺 +61</option>
+                            <option value="+64">🇳🇿 +64</option>
+                        </select>
+                        <input type="tel" name="form_phone_number" required placeholder="Phone Number" class="w-full bg-slate-950/80 border border-slate-800 focus:border-emerald-500/80 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition-colors">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Message</label>
+                    <textarea name="form_message" rows="4" required class="w-full bg-slate-950/80 border border-slate-800 focus:border-emerald-500/80 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none transition-colors resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold py-3.5 rounded-xl transition-all shadow-lg shadow-emerald-950/40 text-sm mt-2">
+                    Send Message
+                </button>
+            </form>
+            <div id="successMessage" class="hidden text-center py-8">
+                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <h4 class="text-lg font-bold text-white">Message Dispatched!</h4>
+                <p class="text-sm text-slate-400 mt-2 font-light">Thank you for reaching out. Your entry has been recorded securely.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-slate-900/60 bg-[#020617] py-8 text-center text-xs text-slate-600">
+        <p>© 2026 Bhanu Kumar. Optimized for Executive Recruitment Pipelines.</p>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('contactModal');
+        const card = document.getElementById('modalCard');
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('successMessage');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        // Navigation Menu Controls
+        function toggleMobileMenu() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />`;
+            }
+        }
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                card.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            card.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                form.classList.remove('hidden');
+                success.classList.add('hidden');
+                form.reset();
+            }, 300);
+        }
+
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+        // Case Study Tab Controller
+        function switchMtcTab(event, contentId) {
+            document.querySelectorAll('.mtc-tab-content').forEach(item => item.classList.replace('block', 'hidden'));
+            document.querySelectorAll('.mtc-tab-btn').forEach(btn => {
+                btn.classList.remove('text-emerald-400', 'border-emerald-400', 'font-semibold');
+                btn.classList.add('text-slate-400', 'border-transparent', 'font-medium', 'hover:text-slate-200');
+            });
+            document.getElementById(contentId).classList.replace('hidden', 'block');
+            event.currentTarget.classList.remove('text-slate-400', 'border-transparent', 'font-medium', 'hover:text-slate-200');
+            event.currentTarget.classList.add('text-emerald-400', 'border-emerald-400', 'font-semibold');
+        }
+
+        // Robust CORS-Bypassing Webhook Submissions
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = "Transmitting Securely...";
+
+            const elements = event.target.elements;
+            const fullPhone = `${elements.form_country_code.value} ${elements.form_phone_number.value.trim()}`;
+
+            const formData = {
+                name: elements.form_name.value.trim(),
+                email: elements.form_email.value.trim(),
+                phone: fullPhone,
+                message: elements.form_message.value.trim(),
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // =========================================================================
+                // PASTE YOUR LIVE GOOGLE APPS SCRIPT "WEB APP URL" STRING INSIDE THE QUOTES BELOW:
+                // =========================================================================
+                const webhookUrl = 'https://script.google.com/macros/s/AKfycbzr9cVTJiVRwfJkOHDFErl4XPRKru4deqI6aJnGScm3sktQjBCVr1QjQzguednmjEbLWg/exec';
+
+                if (webhookUrl === 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+                    alert("Security Check: Please paste your real Google Web App URL endpoint before executing submissions.");
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                    return;
+                }
+
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify(formData)
+                });
+
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+            } catch (error) {
+                console.error("Network Log:", error);
+                alert("Secure transmission could not be completed. Please ensure your webhook endpoint is live or reach out via LinkedIn.");
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        }
+
+        // HARDWARE-ACCELERATED SUPPLY CHAIN CANVAS ANIMATION ENGINE
+        const canvas = document.getElementById('sc-network-canvas');
+        const ctx = canvas.getContext('2d');
+        let hubs = [];
+        let cargoPulses = [];
+        const maxHubs = 40;
+        const connectionDist = 140;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class LogisticsHub {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.35;
+                this.vy = (Math.random() - 0.5) * 0.35;
+                this.radius = Math.random() * 2 + 1.5;
+                this.pulse = Math.random() * Math.PI;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.pulse += 0.015;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                const glow = this.radius + Math.sin(this.pulse) * 1.2;
+                ctx.arc(this.x, this.y, glow, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(16, 185, 129, 0.6)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < maxHubs; i++) hubs.push(new LogisticsHub());
+
+        function spawnCargo(h1, h2) {
+            if (Math.random() < 0.0015 && cargoPulses.length < 25) {
+                cargoPulses.push({
+                    startX: h1.x, startY: h1.y,
+                    endX: h2.x, endY: h2.y,
+                    progress: 0,
+                    speed: 0.008 + Math.random() * 0.012
+                });
+            }
+        }
+
+        function animateNetwork() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            hubs.forEach(hub => { hub.update(); hub.draw(); });
+
+            for (let i = 0; i < hubs.length; i++) {
+                for (let j = i + 1; j < hubs.length; j++) {
+                    const dx = hubs[i].x - hubs[j].x;
+                    const dy = hubs[i].y - hubs[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < connectionDist) {
+                        const alpha = (1 - dist / connectionDist) * 0.12;
+                        ctx.beginPath();
+                        ctx.moveTo(hubs[i].x, hubs[i].y);
+                        ctx.lineTo(hubs[j].x, hubs[j].y);
+                        ctx.strokeStyle = `rgba(148, 163, 184, ${alpha})`;
+                        ctx.lineWidth = 0.7;
+                        ctx.stroke();
+                        spawnCargo(hubs[i], hubs[j]);
+                    }
+                }
+            }
+
+            cargoPulses = cargoPulses.filter(pulse => {
+                pulse.progress += pulse.speed;
+                if (pulse.progress >= 1) return false;
+
+                const currentX = pulse.startX + (pulse.endX - pulse.startX) * pulse.progress;
+                const currentY = pulse.startY + (pulse.endY - pulse.startY) * pulse.progress;
+
+                ctx.beginPath();
+                ctx.arc(currentX, currentY, 2, 0, Math.PI * 2);
+                ctx.fillStyle = '#34d399';
+                ctx.shadowBlur = 6;
+                ctx.shadowColor = '#10b981';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                return true;
+            });
+
+            requestAnimationFrame(animateNetwork);
+        }
+        animateNetwork();
+    </script>
+</body>
+</html>
